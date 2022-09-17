@@ -17,6 +17,11 @@
             color: white;
             margin-bottom: 2rem;
         }
+
+        .contenedorSaldo{
+            max-width: 250px;
+            margin-inline: 27rem;
+        }
     </style>
     <title>Generador Congruencial Multiplicativo</title>
 </head>
@@ -105,19 +110,58 @@
             <div id="mostrarSumatoria">
                 
             </div>
-            <div id="conclusion">
+            <div id="conclusion" class="mb-5">
                 
             </div>
             
             
         </div>
-        
-
-        
     </div>
     <br>
-    
-    <br>
+    <div class="container my-4 mt-5">
+        
+        <div id="contenedorJuegoAzar">
+            <h1 class="text-center">Juego de la ruleta Online</h1>
+            <div class="text-center">
+                <img class="w-25" src="https://i0.wp.com/noticiasmercedinas.com/site/wp-content/uploads/2019/10/ruleta.jpg?resize=640%2C361&ssl=1" alt="juego de la rutela">
+                <h5 class="text-center my-4">Elije un número entre el 1 y el 37 <br>No puedes seguir jugando si se te acaba el saldo.</h5>
+                
+                <div class="contenedorSaldo">
+                    <div>
+                        <label class="col-form-label">Saldo:</label>
+                    </div>
+                    <div class="text-center">
+                        <input class="form-control" type="number" value="5000" readonly id="saldo">
+                    </div>
+                    <div class="row">
+                        <label class="col-form-label">Costo por apuesta: <span>300</span>$</label>
+                    </div>
+                    <div class="row">
+                        <label class="col-form-label">Premio: <span>1000</span>$ </label>
+                    </div>
+                    <div class="row">
+                        <label class="col-form-label mb-5 d-none" id="ganaste">¡Ganaste¡ Con el número <label id="numeroGanador"></span></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-form-label d-none" id="perdiste">¡Perdiste¡ Con el número <label id="numeroPerdedor"></span></label>
+                    </div>
+                    <div class="row">
+                        <label class="col-form-label mb-5 d-none" id="sinsaldo">Ya no tienes saldo.</label>
+                    </div>
+                </div>
+                
+            </div>
+            <form class="form-control needs-validation" novalidate action="#">
+                <label class="col-form-label">Elije un número:</label>
+                <input class="form-control" type="number" id="numeroElegido" required="" min="1" max="37">
+                <div class="invalid-feedback">Ingrese un número dentro del rango o intentelo nuevamente</div>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-success" id="botonJugar">Jugar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer class="text-center my-3 ">
         <div class="row">
@@ -148,4 +192,6 @@
 </body>
 <script src="js/calcularCongruencialMultiplicativo.js"></script>
 <script src="js/calcularPruebaUniformidad.js"></script>
+<script src="js/validacionBootstrap.js"></script>
+<script src="js/juegoRuleta.js"></script>
 </html>
