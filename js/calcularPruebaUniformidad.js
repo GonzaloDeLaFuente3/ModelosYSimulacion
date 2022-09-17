@@ -6,7 +6,6 @@ const cantidad2 = document.getElementById('inputCantidad');
 
 function displayUniformidad(){
     contenedorUniformidad.classList.remove('d-none');
-    console.log("asdasd");
 }
 
 function calcular(){
