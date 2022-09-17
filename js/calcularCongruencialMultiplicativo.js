@@ -30,8 +30,23 @@ function calcular(){
         
     }
     
+    const pasarAPrueba = document.getElementById('hacerPrueba');
+    pasarAPrueba.innerHTML = `
+    <a class="btn btn-success" type="button"  href="pruebaUniformidad.html" target="_blank">PRUEBA DE UNIFORMIDAD</a>
+
     
+    `
+    
+}
+
+function limpiarCampos (){
+    document.getElementById('semilla').value = "";
+    document.getElementById('campoA').value = "";
+    document.getElementById('campoM').value = "";
+    document.getElementById('inputCantidad').value = "";
     
 }
 
 boton.addEventListener("click",calcular);
+const botonLimpiar = document.getElementById('botonLimpiar');
+botonLimpiar.addEventListener("click",limpiarCampos);
