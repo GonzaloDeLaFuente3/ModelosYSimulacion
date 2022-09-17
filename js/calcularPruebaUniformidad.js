@@ -1,6 +1,6 @@
 const contenedorFilas = document.getElementById('contenedorFilas');
 const botonUniformidad = document.getElementById('calcularPrueba');
-const cantidad2 = document.getElementById('inputCantidad');
+const cantidad2 = Number (document.getElementById('inputCantidad').value);
 
 function calcularPruebaUniformidad(){
     var iteracion=0;
@@ -19,7 +19,7 @@ function calcularPruebaUniformidad(){
     var contar2 = 0;
     var contar3 = 0;
     
-    for(iteracion=1;iteracion<= Number(cantidad2.value);iteracion++){
+    for(iteracion=1;iteracion<= Number(cantidad2);iteracion++){
         var AxX = campoA*semilla;
         AxXModM = (AxX)%(campoM);
         var ui = AxXModM / campoM;
@@ -50,7 +50,7 @@ function calcularPruebaUniformidad(){
         semilla = ni;
         
     }
-    var frecuenciaEsperada = 1/3 ;
+    var frecuenciaEsperada = cantidad2/intervalo ;
     var mostrarCantidadIntervalo = document.getElementById('mostrarCantidadIntervalo');
     mostrarCantidadIntervalo.innerHTML = `
         <h6>Cantidad Intervalo 1  = ${contar1} </h6>
