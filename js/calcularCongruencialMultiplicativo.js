@@ -30,12 +30,7 @@ function calcular(){
         
     }
     
-    const pasarAPrueba = document.getElementById('hacerPrueba');
-    pasarAPrueba.innerHTML = `
-    <a class="btn btn-success" type="button"  href="pruebaUniformidad.html" target="_blank">PRUEBA DE UNIFORMIDAD</a>
-
     
-    `
     
 }
 
