@@ -1,59 +1,84 @@
-// const contenedor = document.getElementById('contenedor');
-// const botonPruebaUniformidad = document.getElementById('calcularPrueba');
-// const cantidad = document.getElementById('inputCantidad');
+const contenedorUniformidad = document.getElementById('contenedorUniformidad'); //contenedor prueba uniformidad
+const botonPruebaUniformidad = document.getElementById('calcularPrueba'); //boton calcular uniformidad
+const botonNumerosAleatorios = document.getElementById('botonCalcular'); //boton numeros aleatorios
 
-// function calcular(){
-//     var iteracion=0;
+const cantidad2 = document.getElementById('inputCantidad');
 
-//     var semilla = Number(document.getElementById('semilla').value) ;
-//     var campoA = Number(document.getElementById('campoA').value) ;
-//     var campoM = Number (document.getElementById('campoM').value) ;
-//     var ni=0;
+function displayUniformidad(){
+    contenedorUniformidad.classList.remove('d-none');
+    console.log("asdasd");
+}
 
-//     var intervalo = Number(document.getElementById('campoIntervalo').value);
-//     var alfa = Number(document.getElementById('campoAlfa').value);
-//     var valorTabla = 5.99;
+function calcular(){
+    var iteracion=0;
 
+    var semilla = Number(document.getElementById('semilla').value) ;
+    var campoA = Number(document.getElementById('campoA').value) ;
+    var campoM = Number (document.getElementById('campoM').value) ;
+    var ni=0;
+
+    var intervalo = Number(document.getElementById('campoIntervalo').value);
+    var alfa = Number(document.getElementById('campoAlfa').value);
+
+
+
+    for(iteracion=1;iteracion<= Number(cantidad.value);iteracion++){
+        var AxX = campoA*semilla;
+        AxXModM = (AxX)%(campoM);
+        var ui = AxXModM / campoM;
+        ni = AxXModM;
+        
+        var columnaIntervalo= 0;
+        var contar=0;
+        if(intervalo === 2){
+            
+            if(ui< (1/2)){
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td scope="row">${iteracion}</th>
+                <td>${semilla}</td>
+                <td>${AxX}</td>
+                <td>${AxXModM}</td>
+                <td>${ui}</td>
+                <td>${1}</td>`
+                
+                contenedor.appendChild(tr);
+                semilla = ni;
+            }else{
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td scope="row">${iteracion}</th>
+                <td>${semilla}</td>
+                <td>${AxX}</td>
+                <td>${AxXModM}</td>
+                <td>${ui}</td>
+                <td>${2}</td>`
+                
+                contenedor.appendChild(tr);
+                semilla = ni;
+            }
+            
+            
+            
+        }else{
+            for(j=1 ; j<intervalo ; j++ ){
+                if(ui< (j/intervalo)){
+                    columnaIntervalo = 1;
+                }else if()
+                
+            }
+            
+        }
+
+        
+        
+        
+        
+    }
     
-//     for(iteracion=1;iteracion<= Number(cantidad.value);iteracion++){
-//         var AxX = campoA*semilla;
-//         AxXModM = (AxX)%(campoM);
-//         var ui = AxXModM / campoM;
-//         ni = AxXModM;
-        
-//         var columnaIntervalo= 0;
-//         var contar1=0;
-//         var contar2=0;
-//         var contar3=0;
-//         if(ui < (1/3)  ){
-//             columnaIntervalo = 1;
-//         }else if ( (ui > (1/3) ) && (ui< (2/3)) ) {
-//             columnaIntervalo=2;
-
-//         }else {
-//             columnaIntervalo= 3;
-//         }
-
-        
-        
-//         const tr = document.createElement('tr');
-//         tr.innerHTML = `
-//         <td scope="row">${iteracion}</th>
-//         <td>${semilla}</td>
-//         <td>${AxX}</td>
-//         <td>${AxXModM}</td>
-//         <td>${ui}</td>
-//         <td>${columnaIntervalo}</td>`
-        
-//         contenedor.appendChild(tr);
-//         semilla = ni;
-        
-//     }
     
     
-    
-// }
+}
 
-
-
-// botonPruebaUniformidad.addEventListener("click",calcular);
+botonNumerosAleatorios.addEventListener("click",displayUniformidad);
+botonPruebaUniformidad.addEventListener("click",calcular);
