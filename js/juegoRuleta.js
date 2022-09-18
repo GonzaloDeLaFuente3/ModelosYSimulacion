@@ -17,20 +17,20 @@ function jugar(){
     perdisteLabel.classList.add('d-none');
     sinsaldoLabel.classList.add('d-none');
 
-    if(Number(numeroElegido.value)>0 && Number(numeroElegido.value)<=37 && Number(saldo.value) > 300){
+    if(Number(numeroElegido.value)>0 && Number(numeroElegido.value)<=37 && Number(saldo.innerHTML) > 300){
         if(numeroElegido.value == listaVariables[jugada]){
             ganasteLabel.classList.remove('d-none');
             numeroGanador.innerHTML = numeroElegido.value;
-            saldo.value = Number(saldo.value) +700;
+            saldo.innerHTML = Number(saldo.innerHTML) +700;
         }else{
             perdisteLabel.classList.remove('d-none');
             numeroPerdedor.innerHTML = numeroElegido.value;
-            saldo.value = Number(saldo.value) -300;
+            saldo.innerHTML = Number(saldo.innerHTML) -300;
         }
         jugada++;
     }
 
-    if(Number(saldo.value) < 300){
+    if(Number(saldo.innerHTML) < 300){
         sinsaldoLabel.classList.remove('d-none');
     }
 
