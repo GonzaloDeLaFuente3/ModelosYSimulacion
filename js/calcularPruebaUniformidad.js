@@ -1,8 +1,15 @@
 const contenedorFilas = document.getElementById('contenedorFilas');
 const botonUniformidad = document.getElementById('calcularPrueba');
 const cantidad2 = Number (document.getElementById('inputCantidad').value);
+let miCanvas = document.getElementById('MiGrafica').getContext("2d");
+const grafico = document.getElementById('grafico');
+
+
+
 
 function calcularPruebaUniformidad(){
+    grafico.classList.add('d-none');
+
     var iteracion=0;
 
     var semilla = Number(document.getElementById('semilla').value) ;
@@ -11,7 +18,6 @@ function calcularPruebaUniformidad(){
     var ni=0;
 
     var intervalo = Number(document.getElementById('campoIntervalo').value); 
-    console.log(intervalo);
     var porcentajeAlfa = Number(document.getElementById('campoAlfa').value); 
     var valorTabla = 5.99;
     
@@ -105,7 +111,37 @@ function calcularPruebaUniformidad(){
         conclusion.innerHTML = `
         <h3> Podemos concluir que la muestra es VERDADERA ya que la sumatoria es menor a 5,99, por lo tanto la hipotesis
         no se puede rechazar</h3>
+        
         `
+        grafico.classList.remove('d-none');
+
+        var chart = new Chart(miCanvas,{
+            type:"bar",
+            data:{
+                labels:["Intervalo 1","Intervalo 2","Intervalo 3"],
+                datasets:[
+                    {
+                        label: "Frecuencias Esperadas",
+                        backgroundColor: 'rgb(66,134,244,0.8)',
+                        data: [frecuenciaEsperada,frecuenciaEsperada,frecuenciaEsperada]
+                    },
+                    {
+                        label: "Frecuencias Observadas",
+                        backgroundColor: ['rgb(74,135,72,0.8)'],
+                        data:[contar1,contar2,contar3]
+                    }
+                ]
+            },
+            options:{
+                scales:{
+                    yAxes:[{
+                        ticks:{
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        })
     }else{
         conclusion.innerHTML = `
         <h3> Podemos concluir que la muestra es FALSA ya que la sumatoria es mayor a 5,99, por lo tanto la hipotesis
@@ -113,7 +149,7 @@ function calcularPruebaUniformidad(){
         `
     }
     
-
+    
     
     
     

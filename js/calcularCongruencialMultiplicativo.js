@@ -10,13 +10,11 @@ function calcular(){
     var campoM = Number (document.getElementById('campoM').value) ;
     var ni=0;
     
-    console.log("carga de variables");
     for(iteracion=1;iteracion<= Number(cantidad.value);iteracion++){
         var AxX = campoA*semilla;
         AxXModM = (AxX)%(campoM);
         var ui = AxXModM / campoM;
         ni = AxXModM;
-        console.log("iteracion "+iteracion);
         const tr = document.createElement('tr');
         tr.innerHTML = `
         <td scope="row">${iteracion}</th>
